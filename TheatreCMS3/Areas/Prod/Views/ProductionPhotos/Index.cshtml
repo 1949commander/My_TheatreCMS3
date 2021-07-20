@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Production Photos Index</h2>
+
+<p>
+   @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-success" })
+</p>
+
+<div class="row">
+    
+    @*for each photo in the list, print it's title and descripiton.*@
+    @foreach (var item in Model)
+    {
+      <div class="col-lg-3 col-md-4 col-sm-6 prod-photocard-container">
+          <div class="card prod-photo-cardheight">
+              <img class="prod-cardbody-height" src="@Url.Action("RenderImage", new { id = item.ProPhotoId })" />
+              <div class="card-body border">
+                  <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.Title) </h5>
+                  <p class="cms-text-dark">@Html.DisplayFor(modelItem => item.Description)</p>
+              </div>
+              <div class="photo-card-footer">
+                  @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }, new { @class = "badge badge-warning" })
+                  @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId }, new { @class = "badge badge-danger" })
+              </div>
+          </div>
+      </div>
+
+    }
+</div>
+
+@*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
+            </td>
+        </tr>
+    }*@
+
+

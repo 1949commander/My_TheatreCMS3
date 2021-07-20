@@ -1,0 +1,15 @@
+﻿@using TheatreCMS3.Models
+@model LoginViewModel
+
+@*No .css file is loaded because this partial view will only be loaded in rentals area.*@ 
+@if (!Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Login", "Account", new { area = "" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.EmailOrUsername, new { @Value = "RentalManager" })
+        @Html.HiddenFor(m => m.Password, new { @Value = "R3nt@lM@n@g3r" })
+        @Html.HiddenFor(m => m.RememberMe, new { @Value = false })
+        <input type="submit" value="Login as Rental Manager" class="btn rental-manager" />
+    }
+}

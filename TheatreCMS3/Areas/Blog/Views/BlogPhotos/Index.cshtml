@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPhoto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<div class="row">
+
+  @*for each photo in the list, print it's Id and Title.*@
+  @*@foreach (var item in Model)*@
+  @if (Model != null)
+  {
+    foreach (var item in Model.Where(item => item != null))
+
+    {
+      <div class="col-lg-3 col-md-4 col-sm-6 blog-photocard-container">
+        <div class="card blog-photo-cardheight">
+          <img class="blog-cardbody-height" src="@Url.Action("RenderImage", new { id = item.BlogPhotoId })" />
+          <div class="card-body border">
+            <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.BlogPhotoId) </h5>
+            <p class="cms-text-dark">@Html.DisplayFor(modelItem => item.Title)</p>
+          </div>
+          <div class="photo-card-footer">
+            @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "badge badge-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "badge badge-danger" })
+            @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }, new { @class = "badge badge-special" })
+          </div>
+        </div>
+      </div>
+
+    }
+  }
+
+</div>
+

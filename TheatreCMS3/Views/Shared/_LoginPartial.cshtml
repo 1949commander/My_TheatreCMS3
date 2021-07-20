@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <ul class="nav navbar-nav navbar-right drpbtnRight">
+            <li class="nav-link" id="reg-sign-in">
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", new { area = "" }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li class="nav-link"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <div class="dropdown show" id="navdropRight">
+                <a class="btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user" id="dropIcon"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    @Html.ActionLink("Manage", "Index", "Manage", new { area = "" }, htmlAttributes: new { title = "Manage", @class= "dropdown-item" })
+                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                </div>
+            </div>
+        </ul>
+
+    }
+}
+
+else
+{
+    <ul class="nav navbar-nav navbar-right drpbtnRight">
+        <li class="nav-link" id="reg-sign-in">@Html.ActionLink("Register", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li class="nav-link">@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+        <div class="dropdown show" id="navdropRight">
+            <a class="btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-arrow-alt-circle-right" id="dropIcon"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                @Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                @Html.ActionLink("Register", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "dropdown-item" })
+            </div>
+        </div>
+    </ul>
+    
+}
+
+

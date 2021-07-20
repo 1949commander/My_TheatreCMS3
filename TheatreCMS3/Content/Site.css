@@ -1,0 +1,635 @@
+﻿/* CSS color variables */
+:root { /* Color palette for css */
+    --main-color: #DB1A11; /* Red */
+    --main-color--light: #F04D44; /* Red, a shade lighter */
+    --secondary-color: #D6972A; /* Yellow gold */
+    --secondary-color--dark: #9D7C39; /* Dark Gold */
+    --light-color: #FFFBFB; /* White */
+    --dark-color: #000000; /* Black */
+}
+
+/*Use these classes to easily assign one of the variable colors to an element*/
+/*Text color classes*/
+.cms-text-main {
+    color: var(--main-color);
+}
+
+.cms-text-main-light {
+    color: var(--main-color--light);
+}
+
+.cms-text-secondary {
+    color: var(--secondary-color);
+}
+
+.cms-text-secondary-dark {
+    color: var(--secondary-color--dark);
+}
+
+.cms-text-light {
+    color: var(--light-color);
+}
+
+.cms-text-dark {
+    color: var(--dark-color);
+}
+/*End color classes*/
+
+/*Background color classes*/
+.cms-bg-main {
+    background-color: var(--main-color);
+}
+
+.cms-bg-main-light {
+    background-color: var(--main-color--light);
+}
+
+.cms-bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.cms-bg-secondary-dark {
+    background-color: var(--secondary-color--dark);
+}
+
+.cms-bg-light {
+    background-color: var(--light-color);
+}
+
+.cms-bg-dark {
+    background-color: var(--dark-color);
+}
+/*End background color classes*/
+
+body {
+    background-color: var(--dark-color);
+    color: var(--light-color); /*This should default all text to the white of the site.*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/* Styling and positioning for the Navbar */
+
+.nav > li {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+    .nav > li:hover {
+        background-color: #DEB887;
+        border-radius: .25rem;
+    }
+
+    .nav > li > a {
+        color: #000000;
+        font-weight: bold;
+    }
+
+.navbar-icon-red {
+    height: 42px;
+    width: auto;
+}
+
+.navbar {
+    background-color: var(--main-color);
+}
+
+.navbar-light .navbar-nav .nav-link { /* make text indside black */
+    color: black !important;
+}
+
+.navbar-light navbar-toggler { /* removing hamburger's border the hard way */
+    border-color: rgba(0,0,0,0) !important;
+}
+
+.navbar--hamburger { /* hiding in desktop mode */
+    display: none;
+}
+
+@media screen and (max-width: 850px) { /* fixing navbar elements only within the mobile view */
+    .nav-item { /* hiding regular nav in mobile */
+        display: none;
+    }
+
+    .navbar--hamburger {
+        display: block;
+        position: relative;
+    }
+
+        .navbar--hamburger .nav-item {
+            display: block;
+        }
+
+    .navbar-toggler {
+        display: block;
+        background-color: var(--secondary-color);
+        position: absolute;
+        top: -19px;
+        border: none;
+    }
+
+    .navbar-toggler-icon {
+        top: 30px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 25px;
+        left: 0px;
+        background-color: var(--secondary-color);
+        border-radius: .25rem;
+    }
+
+    .navbar-nav .nav-item .navbar-hamburger--navitem {
+        text-align: left;
+    }
+
+    .navbar-nav .nav-link .navbar-hamburger--navlink {
+        margin-bottom: 1px;
+        padding: 5px;
+    }
+
+    .dropdown-menu .navbar-hamburger--dropdownmenu {
+        border: none;
+    }
+
+    .dropdown-item .navbar-hamburger--drowndownitem {
+        border-radius: .25rem;
+    }
+}
+
+#navdropRight {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    #navdropRight {
+        display: block;
+        position: relative;
+    }
+
+    .drpbtnRight .nav-link {
+        display: none;
+    }
+
+    #dropIcon {
+        font-size: 2em;
+        color: var(--secondary-color);
+    }
+
+    #navdropRight .dropdown-menu {
+        position: absolute;
+        background-color: var(--secondary-color);
+        color: black;
+        font-weight: 900;
+        right: 0;
+    }
+
+    #navdropRight .dropdown-item {
+        font-weight: bold;
+    }
+}
+
+
+h1.CMS-text-bigger {
+    text-align: center;
+    font-size: 75px;
+}
+
+a.CMS-text-bigger {
+    font-size: 36px;
+}
+/*Styling for _Footer.cshtml*/
+
+footer {
+    margin-top: auto;
+}
+
+/*content on left side*/
+.footer-content {
+    padding-top: 120px;
+    padding-left: 30px;
+}
+
+/*content on right side*/
+.footer-rcontent {
+    display: none;
+}
+
+.footer-links {
+    height: 24px;
+    /*height has to be entered manually due to floating elements*/
+    /*ensures padding/margin relative to other elements responds as expected    */
+}
+
+.footer-address {
+    padding-top: 8px;
+    line-height: 20px;
+}
+
+/*copyright when it appears on left for small devices*/
+.footer-copyright {
+    width: 115px;
+    text-align: right;
+    position: relative;
+}
+
+/*copyright when it apears on right for large devices*/
+.footer-lcopyright {
+    width: 115px;
+    position: relative;
+}
+
+/*icons and copyright on left disappear on large devices*/
+@media only screen and (min-width: 500px) {
+    .footer-icons {
+        display: none;
+    }
+
+    .footer-lcopyright {
+        display: none;
+    }
+
+    .footer-content {
+        padding-left: 100px;
+    }
+
+    .footer-rcontent {
+        display: unset;
+        padding-top: 140px;
+        padding-right: 100px;
+    }
+}
+/**/
+/* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
+.nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--dark-color);
+    background-color: #DEB887;
+}
+
+/* Navbar dropdown menu background color*/
+.dropdownbckgrndclr {
+    background-color: var(--secondary-color);
+}
+/*Navbar dropdown menu text color*/
+.dropdowntxt {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+/*Adding CSS for Theatre Vertigo About page*/
+.aboutPage-Card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: black;
+}
+
+.aboutPage-Card-Img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: black;
+    object-fit: cover;
+}
+
+    .aboutPage-Card-Img:hover {
+        background-color: var(--dark-color);
+        opacity: .8;
+        transition: .15s;
+    }
+
+.aboutPage-Card:hover {
+    /*border-color: var(--secondary-color);
+    border-style: double;*/
+}
+
+.aboutPage-Card-Bdy {
+    background-color: var(--dark-color);
+}
+
+.aboutPage-Card-Text {
+    height: 25%;
+    text-align: center;
+    word-break: break-word;
+    color: var(--light-color);
+}
+
+/*Created @media at 3 different screen sizes to check work and customize at each layer*/
+/*This @media will apply when the screen is sized below 992px*/
+@media screen and (max-width: 992px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        /*width: auto;
+        height: 60%;*/
+    }
+
+    .aboutPage-Card-Text {
+        height: 40%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
+}
+
+
+/*This @media will apply when the screen is sized below 767px*/
+@media screen and (max-width: 767px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        /*width: auto;
+        height: 40%;*/
+    }
+
+    .aboutPage-Card-Text {
+        height: 60%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
+}
+
+/*This @media will apply when the screen is sized below 576px*/
+@media screen and (max-width: 577px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        /*width: 100%;
+        height: 60%;*/
+    }
+
+    .aboutPage-Card-Text {
+        height: 40%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
+}
+
+.aboutPage-History {
+    text-align: center;
+    background-color: var(--main-color-light);
+    color: var(--light-color);
+    padding: 40px;
+}
+
+.aboutPage-Board {
+    text-align: center;
+    color: var(--light-color);
+    padding: 40px;
+    background-color: black;
+}
+
+.aboutPage-About Us {
+    text-align: center;
+    color: var(--light-color);
+    padding: 40px;
+}
+
+.aboutPage-h3 {
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-family: Broadway;
+    font-size: 4vw;
+    position: center;
+}
+
+.aboutPage-h4 {
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--main-color);
+}
+
+.aboutPage-header {
+    border-radius: 0 100px 0 0;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    font-family: Broadway;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.aboutPage-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid white;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Used to fix centering of text*/
+.aboutPageContainer {
+    position: relative;
+}
+
+/* LOGIN PAGE */
+
+.formContainer {
+    margin: 10% auto;
+    width: 750px;
+    background-color: var(--secondary-color--dark);
+    border: ridge 10px;
+    border-color: var(--main-color--light);
+    box-shadow: inset var(--dark-color) 1px 2px 20px;
+}
+
+@media screen and (max-width: 850px) {
+    .formContainer {
+        width: 100%;
+    }
+}
+
+#loginForm {
+    margin: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 100%;
+    color: var(--light-color);
+}
+
+.LoginButton > .btn-warning {
+    background-color: var(--secondary-color);
+    border: outset 2px;
+    border-color: var(--main-color--light);
+    font-weight: bold;
+    box-shadow: var(--dark-color) .8px .8px 5px;
+}
+
+    .LoginButton > .btn-warning:hover {
+        background-color: #b57b16;
+        border: inset 2px;
+        border-color: var(--main-color);
+        box-shadow: inset var(--dark-color) 1px 1px 5px;
+    }
+
+/* REGISTER PAGE */
+
+
+/* Style form with smaller size, centered element, discerning background, shape, and shadow */
+.Register-form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+/* Center align headings and format color and spacing */
+.Register-heading2 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+/* Center align headings and format color and spacing */
+.Register-heading4 {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 5px;
+}
+
+/* Allow elements to fill entire form and be centered */
+.Register-div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Change background color of input fields */
+.Register-input {
+    background-color: var(--light-color);
+}
+
+    /* Hover effects for input fields */
+    .Register-input:hover {
+        box-shadow: 0px 0px 10px var(--secondary-color--dark);
+    }
+
+/* Style submit button */
+.Register-button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    /* Button hover effect */
+    .Register-button:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+/* Contact Us Page */
+.contact-header {
+    border-radius: 0 0 0 100px;
+}
+
+.contact-h1 {
+    font-family: 'Limelight', cursive;
+}
+
+.contact-btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border: 1.5px solid var(--light-color);
+    border-radius: 10px;
+}
+
+    .contact-btn:hover {
+        color: var(--light-color);
+    }
+
+.contact-title-underline {
+    width: 150px;
+    border-top: 3px solid var(--main-color);
+}
+
+/*----------------------Donate Page-----------------------*/
+/*--Format Input Container--*/
+.donate-container-input {
+    background-color: var(--main-color--light);
+    border-radius: .50rem;
+    padding: 25px 25px 20px 25px;
+}
+
+/*--Column Padding--*/
+.donate-col-sm {
+    padding: 0px 4px 0px 4px;
+}
+
+/*--Row Padding--*/
+.donate-row{
+    padding: 4px 0px 4px 0px;
+}
+
+/*--Data Label Text---*/
+.donate-label > cms-text-light {
+}
+
+/*--Format Input Text Boxes--*/
+.donate-input {
+    border-color: var(--dark-color);
+    border-style: inset;
+    border-width: 2px 1px 1px 2px;
+    padding: 2px 0px 2px 8px;
+    width:100%;
+}
+
+/*--Format Submit Button*/
+.donate-submit {
+    color: var(--main-color);
+}
+
+#dropdownMenu2 {
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+

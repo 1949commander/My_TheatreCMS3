@@ -1,0 +1,105 @@
+﻿@*<div class="navbar navbar-inverse navbar-fixed-top .navbar .navbar-expand{-sm|-md|-lg|-xl}">
+      <div class="container">
+          <div class="navbar-header">
+              <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png"/></a>
+
+              <span><a href="#" class="icon-bar">Production</span>
+              <span><a href="#" class="icon-bar">Rental</span>
+              <span><a href="#" class="icon-bar">Blog</span>
+          </div>
+      </div>
+  </div>*@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top nav-pills nav-fill ">
+  <div class="container-fluid">
+    <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
+    <div class="navbar--hamburger">
+      <!-- this holds the mobile nav in a hamburger menu -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> <!-- actual humburger button -->
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav">
+          <li class="nav-item navbar-hamburger--navitem">
+            <a class="nav-link .navbar-hamburger--navlink" href="~/Home/Index">TheaterCMS</a>
+          </li>
+          <li class="nav nav-item dropdown navbar-hamburger--navitem">
+            <a class="nav nav-link dropdown-toggle .navbar-hamburger--navlink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Production
+            </a>
+            <div class="dropdown-menu dropdownbckgrndclr navbar-hamburger--dropdownmenu" aria-labelledby="navbarDropdownMenuLink">
+              @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+            </div>
+          </li>
+          <li class="nav-item navbar-hamburger--navitem">
+            <a class="nav nav-link dropdown-toggle .navbar-hamburger--navlink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rental</a>
+            <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+              @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Rental History", "Index", "RentalHistory", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Rental Survey", "Index", "RentalSurvey", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+            </div>
+
+          </li>
+          <li class="nav-item dropdown navbar-hamburger--navitem">
+            <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Blog
+            </a>
+            <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+              @Html.ActionLink("Blog Post", "Index", "BlogPost", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Comments", "Index", "Comments", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Blog Author", "Index", "BlogAuthor", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+              @Html.ActionLink("Blog Photo", "Index", "BlogPhoto", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> <!-- mobile nav end -->
+
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
+      </li>
+      <li class="nav nav-item dropdown ">
+        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Production
+        </a>
+        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+          @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Rental
+        </a>
+        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+          @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Rental History", "Index", "RentalHistory", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Rental Survey", "Index", "RentalSurvey", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Blog
+        </a>
+        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+          @Html.ActionLink("Blog Post", "Index", "BlogPost", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Comments", "Index", "Comments", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Blog Author", "Index", "BlogAuthor", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Blog Photo", "Index", "BlogPhoto", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+        </div>
+      </li>
+    </ul>
+    @Html.Partial("_LoginPartial")
+  </div>
+</nav>
+

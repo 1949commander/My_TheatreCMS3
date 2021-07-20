@@ -1,0 +1,47 @@
+﻿@using TheatreCMS3.Models
+@{ 
+    var siteSettings = SiteSettings.ReadSiteSettings();
+}
+
+<footer>
+    <div class="float-left footer-content">
+
+        <div class="float-left footer-icons">
+            <span>
+                <i class="fab fa-facebook-f fa-2x"></i> &nbsp;
+                <i class="fab fa-youtube fa-2x"></i> &nbsp;
+                <i class="fab fa-twitter fa-2x"></i>
+            </span>
+        </div>
+        <div class="footer-links">
+            @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "float-left" })
+            @*<a class="float-left" href="#">About</a> added action link above *@
+            @*<a class="float-right" href="3">Contact</a> added action link below *@
+            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
+        </div>
+        <p class="footer-address">
+          <!-- .SPLIT MAKES ARRAYS. USING BRACKETS TO CALL THE TWO PARTS OF THE ADDRESS, THEN USING < BR /> TO MAKE NEW LINE -->
+            @{
+                var splitArray = siteSettings.Address.Split(new char[] { ',' }, 2);
+            }
+            @splitArray[0]<br />
+            @splitArray[1]<br />
+            @siteSettings.PhoneNumber
+        </p>
+        <p class="footer-lcopyright">
+            @siteSettings.Copyright
+        </p>
+    </div>
+    
+    <div class="float-right footer-rcontent">
+        <span>
+            <i class="fab fa-facebook-f fa-2x"></i> &nbsp;
+            <i class="fab fa-youtube fa-2x"></i> &nbsp;
+            <i class="fab fa-twitter fa-2x"></i>
+        </span>
+        <p class="footer-copyright">
+            @siteSettings.Copyright
+        </p>
+    </div>
+    
+</footer>

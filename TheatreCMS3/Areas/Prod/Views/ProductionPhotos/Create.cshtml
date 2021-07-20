@@ -1,0 +1,49 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+    <h2>Create a Production Photo</h2>
+
+    @using (Html.BeginForm("Create", "ProductionPhotos", FormMethod.Post, new { @class = "row prodphoto-container", enctype = "multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-6">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                <div>
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please type title here." } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description)
+                <div>
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please type description here." } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-container col-md-6">
+            @*The name here 'photoFile' will match the parameter name in the 'create' method the form is sent to.*@
+            <input type="file" id="myfile" name="photoFile"><br><br>
+           
+            @*<img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" width="100%" height="80%" alt="Production Photo" />*@
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-success prodphoto-btn" type="submit" value="Create" />
+            <button class="btn backtolist-btn prodphoto-btn">@Html.ActionLink("Back to List", "Index")</button>
+        </div>
+    } @*Ends Html.BeginForm*@
+
+
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

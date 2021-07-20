@@ -1,0 +1,54 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPhoto
+
+@{
+    ViewBag.Title = "Details Blog Photo";
+}
+
+<h2>Details</h2>
+
+<p>
+  @Html.ActionLink("Index", "Index", null, new { @class = "btn btn-success" })
+</p>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 blog-photocard-container">
+      <div class="card blog-photo-cardheight">
+        <img class="blog-cardbody-height" src="@Url.Action("RenderImage", new { id = Model.BlogPhotoId})" />
+        <div class="card-body border">
+          <h5 class="cms-text-main">@Html.DisplayFor(modelItem => Model.BlogPhotoId) </h5>
+          <p class="cms-text-dark">@Html.DisplayFor(modelItem => Model.Title)</p>
+        </div>
+        <div class="photo-card-footer">
+          @Html.ActionLink("Edit", "Edit", new { id =  Model.BlogPhotoId }, new { @class = "badge badge-warning" })
+          @Html.ActionLink("Delete", "Delete", new { id = Model.BlogPhotoId }, new { @class = "badge badge-danger" })
+        </div>
+      </div>
+    </div>
+</div>
+
+@*<div>
+    <h4>BlogPhoto</h4>  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+    </dl>
+</div>*@
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPhotoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

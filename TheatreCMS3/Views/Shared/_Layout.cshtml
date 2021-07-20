@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @if (ViewContext.RouteData.DataTokens["area"] != null)
+    {
+        <link rel="stylesheet" href="~/Content/Areas/@(ViewContext.RouteData.DataTokens["area"]).css" />
+    }
+    <!--add google font for header section-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    @Html.Partial("_Navbar")
+    @Html.Partial("_DevNavbar")
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+    
+    @*Call partial view only in rentals area*@
+    @if (Request.Url.ToString().Contains("/Rent/Rentals"))
+    {
+        @Html.Partial("_LoginBtnRentalManager", new TheatreCMS3.Models.LoginViewModel())
+    }
+    
+    
+    @if (ViewContext.RouteData.DataTokens["area"] != null)
+    {
+        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+    }
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

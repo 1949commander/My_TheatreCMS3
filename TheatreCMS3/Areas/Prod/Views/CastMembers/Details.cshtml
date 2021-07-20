@@ -1,0 +1,82 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.CastMember
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CastMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearJoined)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearJoined)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainRole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentMember)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Character)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Character)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CastYearLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CastYearLeft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DebutYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DebutYear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

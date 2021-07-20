@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<body>
+  @using (Html.BeginForm("Donate", "Home", FormMethod.Post))
+            {
+  <div class="container-fluid">
+    <h1 class="text-center">Consider Making a Donation</h1>
+    <div class="container donate-container-input">
+<!--DATA ENTRY FIELDS--------------------------------------------->
+<!--Donor First and Last Name -->
+<!-- START First Row -->
+      <div class="row donate-row">
+        <!--Column 1-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-label">
+            <label class="donate-label">Name&#8727;</label>
+          </div>
+        </div>
+        <!--Column 2-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-name">
+            <input class="donate-input" type="text" placeholder="First Name" />
+          </div>
+        </div>
+        <!--Column 3-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-name">
+            <input class="donate-input" type="text" placeholder="Last Name" />
+          </div>
+        </div>
+      </div>
+<!-- END First Row -->
+
+<!--Donor Email Address------------>
+<!-- START Second Row -->
+      <div class="row donate-row">
+        <!--Column 1-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-label">
+            <label class="donate-label">Email Address&#8727;</label>
+          </div>
+        </div>
+        <!--Column 2-3-->
+        <div class="col-sm donate-col-sm">
+          <div class="donate-name">
+            <input class="donate-input" type="text" placeholder="Email Address" />
+          </div>
+        </div>
+      </div>
+<!-- END Second Row -->
+
+<!--Donor Donation Amount----->
+<!-- START Third Row -->
+      <div class="row donate-row">
+        <!--Column 1-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-label">
+            <label class="donate-label">Donation Amount($)&#8727;</label>
+          </div>
+        </div>
+        <!--Column 2-3-->
+        <div class="col-sm donate-col-sm">
+          <div class="donate-name">
+            <input class="donate-input" type="text" placeholder="Donation Amount" />
+          </div>
+        </div>
+      </div>
+<!-- END Third Row -->
+
+<!--Donor Donation Comments----->
+<!-- START Forth Row -->
+      <div class="row donate-row">
+        <!--Column 1-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-label">
+            <label class="donate-label">Donation Comments</label>
+          </div>
+        </div>
+        <!--Column 2-3-->
+        <div class="col-sm donate-col-sm">
+          <div class="donate-name">
+            <input class="donate-input" type="text" input style="height:100px;font-size:8pt " placeholder="Place comments here..." />
+          </div>
+        </div>
+      </div>
+<!-- END Forth Row -->
+
+<!--Submit Button----->
+<!-- START Fifth Row -->
+      <div class="row donate-row">
+        <!--Column 1-->
+        <div class="col-sm-4 donate-col-sm">
+          <div class="donate-name">
+            <button type="submit" class="btn btn-light">Submit</button>
+          </div>
+        </div>
+      </div>
+<!-- END Fifth Row -->
+    </div>
+  </div>
+            }
+</body>

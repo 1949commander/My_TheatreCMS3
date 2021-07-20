@@ -1,0 +1,56 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPhoto
+
+@{
+  ViewBag.Title = "Edit";
+}
+
+<h2>Edit BlogPhoto</h2>
+
+
+@using (Html.BeginForm("Edit", "BlogPhotos", FormMethod.Post, new { @class = "row blogphoto-container", enctype = "multipart/form-data" }))
+{
+  @Html.AntiForgeryToken()
+
+  <div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.BlogPhotoId)
+    @*Creates Title Label and Edit Box*@
+    <div class="form-group">
+      @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        <input type="submit" value="Save" class="btn btn-success blogphoto-btn" />
+      </div>
+    </div>
+    @*Creates the Choose File Button*@
+    <div class="photo-container col-md-6">
+      <div style="margin: 3px">
+        <input type="file" , id="inputImage" name="image" />
+      </div>
+      @*populate with the image user chose to edit*@
+      <div>
+        <img class="blog-img-box" src="@Url.Action("RenderImage", new {id = Model.BlogPhotoId})" width="600" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-success blogphoto-btn" />
+        <button class="btn btn-success" >@Html.ActionLink("Back to List", "Index")</button>
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {@Scripts.Render("~/bundles/jqueryval")}
+
+

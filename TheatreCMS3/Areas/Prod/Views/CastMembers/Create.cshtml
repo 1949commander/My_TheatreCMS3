@@ -1,0 +1,111 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.CastMember
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="castMember-header">Create Cast Member</div>
+
+
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+
+   <div class="castMember-container">
+     
+     @*Name:*@
+     <div class="form-group">
+       @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       <div class="form-horizontal">
+         @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Cast Member's Name...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Year Joined:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { placeholder = "The Year The Cast Member Joined The Company...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Main Role:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "form-control castMember-form" })
+           @Html.ValidationMessageFor(model => model.MainRole, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Bio:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { placeholder = "A Short Biography About The Cast Member...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Checkbox:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           <div class="checkbox">
+             @Html.EditorFor(model => model.CurrentMember)
+             @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
+           </div>
+         </div>
+       </div>
+
+       @*Character:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.Character, new { htmlAttributes = new { placeholder = "The Character The Cast Member Is Playing As...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.Character, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Year Left:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.CastYearLeft, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { placeholder = "The Year The Cast Member Left The Company...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.CastYearLeft, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       @*Debut Year:*@
+       <div class="form-group">
+         @Html.LabelFor(model => model.DebutYear, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-12">
+           @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { placeholder = "The Year The Cast Member Participated In Their First Production...", @class = "form-control castMember-form" } })
+           @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
+         </div>
+       </div>
+
+       <center>
+         <div class="form-group">
+           <div class="col-md-10">
+             <input type="submit" class="btn btn-default castMember-button" value="Create" />
+             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default castMember-returnbutton" })
+             </div>
+           </div>
+       </center>
+     </div>
+    </div>
+  }
+
+  @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+  }
+
+
+
+

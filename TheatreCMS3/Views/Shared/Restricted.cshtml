@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="text-danger m-3">Access Denied</h1>
+    This page is only accessible to Theatre staff.
+    <div>
+        <img src="~/Content/images/restricted.png" alt="Access Denied" class="m-4" />
+    </div>
+
+    <div>
+        <p>Please log in to authorized account.</p>
+        <a href="@Url.Action("Login", "Account", new { area = "" })" class="btn btn-sm prod-btn w-25">Log In</a>
+    </div>
+
+</div>

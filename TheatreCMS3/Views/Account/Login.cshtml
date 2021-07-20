@@ -1,0 +1,67 @@
+﻿@using TheatreCMS3.Models
+@model LoginViewModel
+@{
+  ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+<div class="formContainer">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <section id="loginForm">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+          @Html.AntiForgeryToken()
+          <h4>Use a local account to log in.</h4>
+          @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+          <div class="form-group text-nowrap">
+            @Html.LabelFor(m => m.EmailOrUsername, "Email or Username", new { @class = "col-md-2 control-label" })
+            <div class="col-md-12">
+              @Html.TextBoxFor(m => m.EmailOrUsername, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.EmailOrUsername, "", new { @class = "text-danger" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-12">
+              @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <div class="checkbox">
+                <div class="LoginButton">
+                  <input type="submit" value="Log In" class="btn btn-warning float-right" />
+                </div>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+              </div>
+            </div>
+          </div>
+
+          <p>
+            @Html.ActionLink("Register as a new user", "Register")
+          </p>
+          @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+        }
+      </section>
+    </div>
+  </div>
+</div>
+
+@*<div class="col-md-4">
+      <section id="socialLoginForm">
+          @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+      </section>
+  </div>*@
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+}
